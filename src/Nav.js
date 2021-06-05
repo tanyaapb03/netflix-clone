@@ -19,7 +19,7 @@ function Nav() {
         },[]);
     
     return (
-        <div className="nav nav_black">
+        <div className={`nav ${show && `nav_black`}`}>
             <div className="nav_contents">
                 {/* logo */}
                 <img className="nav_logo" 
