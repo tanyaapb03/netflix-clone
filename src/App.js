@@ -3,19 +3,39 @@ import React from 'react';
 // import { Counter } from './features/counter/Counter';
 import './App.css';
 
-import HomeScreen from './HomeScreen';
+import HomeScreen from './screens/HomeScreen';
+import LoginScreen from './screens/LoginScreen';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 function App() {
+  const user=null;
+
   return (
     <div className="App">
-      
-      
-      <HomeScreen/>
-      
+      <Router>
+        {/* if user is null then goto login else render the app with homescreen  */}
+        {!user ?(  
+          <LoginScreen/>
 
-      </div>
+        ):(<Switch>
+          <Route exact path="/">
+          <HomeScreen/>
+          </Route>
+        </Switch>
+        )}
+
+        
+      
+    </Router>
+    </div>
   );
+
+      
 }
 
 export default App;
